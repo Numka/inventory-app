@@ -12,8 +12,9 @@ class Item {
   }
 
   save() {
-    db = getDb();
-    db.collection("items")
+    const db = getDb();
+    return db
+      .collection("items")
       .insertOne(this)
       .then(result => {
         console.log(result);
@@ -22,4 +23,19 @@ class Item {
         console.log(err);
       });
   }
+
+  static fetchAll() {
+    const db = getDb();
+    db.collection("items")
+      .find()
+      .toArray()
+      .then(items => {
+        return items;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 }
+
+module.exports = Item;
