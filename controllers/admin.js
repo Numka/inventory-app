@@ -29,5 +29,11 @@ exports.postAddItem = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-  res.render("admin/items");
+  Item.fetchAll()
+    .then(items => {
+      res.render("admin/items", {
+          items: items
+      });
+    })
+    .catch(err => console.log(err));
 };

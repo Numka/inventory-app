@@ -26,7 +26,7 @@ class Item {
 
   static fetchAll() {
     const db = getDb();
-    db.collection("items")
+    return db.collection("items")
       .find()
       .toArray()
       .then(items => {

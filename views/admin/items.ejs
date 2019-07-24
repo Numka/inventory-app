@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Nothing there!</h1>
+    <a href="/add-item">Add item</a>
+    <h1>Items</h1>
+    <% for (let item of items) { %>
+        <ul>
+            <li><%= item.name %></li>
+            <li><%= item.description %></li>
+            <li><%= item.category %></li>
+            <li><%= item.price %></li>
+        </ul>
+    <% }; %>
 </body>
 </html>
