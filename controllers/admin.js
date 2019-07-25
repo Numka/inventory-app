@@ -68,7 +68,7 @@ exports.postEditItem = (req, res, next) => {
   updatedItem
     .save()
     .then(result => {
-      console.log('Updated product!');
+      console.log("Updated product!");
       res.redirect("/");
     })
     .catch(err => {
@@ -96,6 +96,17 @@ exports.getDetails = (req, res, next) => {
       res.render("admin/details", {
         item: item
       });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+exports.getDeleteItem = (req, res, next) => {
+  const itemId = req.params.itemId;
+  Item.deleteById(itemId)
+    .then(result => {
+      res.redirect("/");
     })
     .catch(err => {
       console.log(err);
