@@ -7,32 +7,40 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Add Item</h1>
-    <form action="/add-item" method="POST">
+    <% if (editing) { %>
+      <p>Editing</p>
+      <p><%= item.name %></p>
+    <% } %>
+    
+    <h1><% if (editing) { %>Edit item<% } else { %>Add item<% } %></h1>
+    <form action="<% if (editing) { %>/edit-item<% } else { %>/add-item<% } %>" method="POST">
       <div class="form-control">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" value="<% if (editing) { %><%= item.name %><%} %>"/>
       </div>
       <div class="form-control">
         <label for="description">Description</label>
-        <textarea name="description" id="description" rows="5"></textarea>
+        <textarea name="description" id="description" rows="5"><% if (editing) { %><%= item.description %><%} %></textarea>
       </div>
       <div class="form-control">
         <label for="category">Category</label>
-        <input type="text" name="category" id="category" />
+        <input type="text" name="category" id="category" value="<% if (editing) { %><%= item.category %><%} %>"/>
       </div>
       <div class="form-control">
         <label for="price">Price</label>
-        <input type="number" name="price" id="price" />
+        <input type="number" name="price" id="price" value="<% if (editing) { %><%= item.price %><%} %>"/>
       </div>
       <div class="form-control">
-        <label for="numberInStock">Number In Stock</label>
-        <input type="text" name="numberInStock" id="numberInStock" />
+        <label for="numInStock">Number In Stock</label>
+        <input type="text" name="numInStock" id="numInStock" value="<% if (editing) { %><%= item.numInStock %><%} %>"/>
       </div>
       <div class="form-control">
         <label for="imageUrl">Image</label>
-        <input type="text" name="imageUrl" id="imageUrl" />
+        <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= item.imageUrl %><%} %>"/>
       </div>
+      <% if (editing) { %>
+        <input type="hidden" name="itemId" value="<%= item._id %>">
+      <% } %>
       <div class="form-actions">
         <button type="submit">Submit</button>
       </div>
