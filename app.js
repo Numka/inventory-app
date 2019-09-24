@@ -1,4 +1,5 @@
 //imports
+const dotenv = require('dotenv').config();
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -29,5 +30,5 @@ app.use(adminRoutes);
 
 // connection to the database + starting server
 mongoConnect(() => {
-  app.listen(3000);
+  app.listen(process.env.PORT);
 });

@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 
@@ -5,7 +6,7 @@ let _db;
 
 const mongoConnect = callback => {
   MongoClient.connect(
-    "mongodb+srv://numinor:toTheStars819@cluster0-8dfz5.mongodb.net/inventory?retryWrites=true&w=majority",
+    process.env.DBURI,
     { useNewUrlParser: true }
   )
     .then(client => {

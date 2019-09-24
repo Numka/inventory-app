@@ -8,6 +8,7 @@ exports.getAddItem = (req, res, next) => {
 };
 
 exports.postAddItem = (req, res, next) => {
+  console.log(req.body);
   const name = req.body.name;
   const description = req.body.description;
   const category = req.body.category;
