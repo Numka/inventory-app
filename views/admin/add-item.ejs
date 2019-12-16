@@ -39,7 +39,7 @@
       </div>
       <div class="form-control">
         <label for="imageUrl">Image</label>
-        <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= item.imageUrl %><%} %>"/>
+        <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= item.imageUrl %><% } else { %>https://markmanson.net/wp-content/uploads/2019/02/eif-3d-fits-shadow.jpg<% } %>"/>
       </div>
       <% if (editing) { %>
         <input type="hidden" name="itemId" value="<%= item._id %>">
