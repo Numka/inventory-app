@@ -25,9 +25,9 @@
                 <p>Price: $<%= item.price %></p>
             </div>
             <div class="item--card-actions">
-                    <a href="/details/5d8a7ec91c9d440000990c62">Details</a>
-                    <a class="btn" href="/edit-item/5d8a7ec91c9d440000990c62">Edit</a>
-                    <a href="/delete-item/5d8a7ec91c9d440000990c62">Delete</a>
+                    <a href="/details/<%= item._id %>">Details</a>
+                    <a class="btn" href="/edit-item/<%= item._id %>">Edit</a>
+                    <a href="/delete-item/<%= item._id %>">Delete</a>
             </div>
         </div>
         <% }; %>

@@ -12,6 +12,10 @@ html {
 	display: flex;
 }
 
+.container--general {
+  padding: 2rem;
+}
+
 .item-card {
 	width: 15rem;
 	height: auto;

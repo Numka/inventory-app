@@ -57,6 +57,7 @@ exports.postEditItem = (req, res, next) => {
   const updatedNumInStock = req.body.numInStock;
   const updatedImageUrl = req.body.imageUrl;
   const itemId = req.body.itemId;
+
   const updatedItem = new Item(
     updatedName,
     updatedDescription,
@@ -66,6 +67,7 @@ exports.postEditItem = (req, res, next) => {
     updatedImageUrl,
     itemId
   );
+
   updatedItem
     .save()
     .then(result => {
@@ -82,6 +84,7 @@ exports.postEditItem = (req, res, next) => {
 exports.getIndex = (req, res, next) => {
   Item.fetchAll()
     .then(items => {
+      console.log(items);
       res.render("admin/items", {
         items: items
       });
@@ -92,8 +95,10 @@ exports.getIndex = (req, res, next) => {
 
 exports.getDetails = (req, res, next) => {
   const itemId = req.params.itemId;
+  console.log(itemId);
   Item.findById(itemId)
     .then(item => {
+      console.log(item);
       res.render("admin/details", {
         item: item
       });

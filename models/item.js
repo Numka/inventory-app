@@ -46,6 +46,7 @@ class Item {
       });
   }
 
+  //new mongodb.ObjectId(itemId)
   static findById(itemId) {
     const db = getDb();
     //console.log(itemId);
